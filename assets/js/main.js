@@ -1,23 +1,51 @@
+function openNav() {
+    document.getElementById("nav").style.height = "100%";
+  }
+
+  function closeNav() {
+    document.getElementById("nav").style.height = "0%";
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 // You can use a ScrollTrigger in a tween or timeline
-gsap.to("svg", {
-  yPercent: 10,
-  scrollTrigger: {
-    trigger: "svg",
-    start: "500px 480px",
-    end: "300px 100px",
-    scrub: true,
-    // markers: true,
-  }
-});
+gsap.to("#svg-title", {
+    yPercent: 10,
+    scaleY: 1.18,
+    scrollTrigger: {
+      trigger: "svg",
+      start: "500px 480px",
+      end: "300px 100px",
+      scrub: true,
+      // markers: true,
+    }
+  });
+
+
+var tl = gsap.timeline({delay: 0});
+        tl.from("#svg-title", {yPercent: -400, scaleY: 9,  ease: "back.out(1.8)", duration: 1}, 0),
+        tl.from(".scroll-tx-right", {xPercent: 200,  ease: "back.out(.7)", duration: 1.4}, 0);
+        tl.from(".scroll-tx-left", {xPercent: -200,  ease: "back.out(.7)", duration: 1.4}, 0);
+        tl.from("#menu-btn", {xPercent: 200,  ease: "back.out(.7)", duration: 1}, 0);
 
 
 
 
-gsap.set(".mouse-ball", {xPercent: -50, yPercent: -50});
 
-const ball = document.querySelector(".mouse-ball");
+gsap.set("#cursor-ball", {xPercent: -50, yPercent: -50});
+
+const ball = document.querySelector("#cursor-ball");
 const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 const mouse = { x: pos.x, y: pos.y };
 const speed = 0.2;

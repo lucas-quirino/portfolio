@@ -18,14 +18,14 @@ font size */
    --fs-big: calc(117px + 7vw);
    --fs-body: calc(10px + .3vw);
    --fs-h1: calc(40px + 1vw);
-   --fs-h2: calc(21px + .4vw);
+   --fs-h2: calc(31px + .4vw);
    --fs-h3: calc(18px + .3vw);
    --fs-h4: calc(14px + .4vw);
 /* ________________________________________
 colors */
    /* --c-bg: #00808b; */
    --c-bg: #dbdbdb;
-   --c-svg-title: #ff8585;
+   --c-svg-title: #111111;
 
    --c-white: #fafafa;
    --c-grey-light: #e6e6e6;
@@ -33,17 +33,18 @@ colors */
    --c-grey-dark: #3a3a3a;
    --c-black: #111111;
 
-   --c-1: #c20000;
-   --c-2: #9bee00;
+   --c-1: #22c7d6;
+   --c-2: #abf324;
    --c-3: #b1afafa9;
-
 /* ________________________________________
 transitions & animation */
    --trans-bg-color: background-color .4s, color .4s;
    --anim-slide-down: slide-down 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
    --anim-slide-right: slide-right 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 /* ________________________________________
-shadow */
+shadow, margin, padding */
+   --margin: .877rem;
+   --padding: .877rem;
    --bs: 0px 0px 25px rgba(0,0,0, 2);
    --ts-white: 3px 3px 3px #fbffc173;
    --ts-black: 5px 5px 5px #00000088;
@@ -66,7 +67,7 @@ ________________________________*/
    border-radius: 10px;
    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-   background-color: var(--c-5);
+   background-color: var(--c-black);
 }
 *,
 *::before,
@@ -89,37 +90,32 @@ body {
    background-color: var(--c-bg);
    height: 500vh;
 }
-a,
-.hover-item {
+a {
    text-decoration: none;
    color: inherit;
-   -webkit-tap-highlight-color: transparent;
-   cursor: pointer;
+   transition: 0.5s;
+}
+a.hover-item {
+   text-decoration: none;
    color: var(--c-black);
-   padding-bottom: .1rem;
    background:
-      linear-gradient(
-      to right,
-         rgba(20, 20, 20, 0),
-         rgba(19, 19, 19, 0)
-      ),
-      linear-gradient(
-      to right,
-         rgb(255, 19, 19),
-         rgb(218, 196, 0),
-         rgb(194, 97, 7)
-   );
-   background-size: 100% 1.7px, 0 1.7px;
-   background-position: 100% 100%, 0 100%;
+   linear-gradient( 90deg, #000  50%, #fff 0),
+   linear-gradient(-90deg, #000  50%, #fff 0),
+   linear-gradient( 90deg, #0000 50%, #000 0),
+   linear-gradient(-90deg, #0000 50%, #000 0);
    background-repeat: no-repeat;
-   transition: background-size 500ms;
+   background-size: 200% 51%;
+   background-position: top left, bottom right;
+   -webkit-background-clip: text, text, padding-box, padding-box;
+            background-clip: text, text, padding-box, padding-box;
+   transition: 0.5s;
+   padding: 0 2rem;
 }
-a:hover,
-.hover-item:hover {
-   cursor: pointer;
-   color: var(--c-white);
-   background-size: 0 1.7px, 100% 1.7px;
+a.hover-item:hover, a.hover-item:active {
+   color: var(--c-bg);
+   background-position: top right, bottom left;
 }
+
 ul,
 ol,
 li {
@@ -163,10 +159,10 @@ h4 {
 /*    3. REUSABLE CLASSES
 ________________________________*/
 .container {
-   margin: 0 .877rem;
+   margin: var(--margin);
 }
 .wrapper {
-   padding: 0 .877rem;
+   padding: var(--padding);
 }
 .flex-item {
    display: flex;
@@ -221,57 +217,161 @@ ________________________________*/
 }
 
 /*________________________________*/
-/*    4.HEADER
+/*    4.SVG AND DINAMIC ITENS
 ________________________________*/
-svg#header-big-title {
-   position: relative;
-   margin-top: 1rem;
-   width: 99vw; height: fit-content;
-}
-svg#header-big-title path {
-   z-index: -999;
+div#svg-title {
+   width: 100vw; height: 100%;
    display: flex;
+   flex-direction: center;
+   justify-content: center;
+   margin: 1rem 0;
 }
-
-.mouse-ball {
+svg.big-title {
+   position: relative;
+   margin: 0 auto;
+   width: 100vw; height: fit-content;
+}
+svg.big-title path {
+   position: absolute;
+}
+svg.big-title path.letter-L {
+   position: absolute;
+}
+#cursor-ball{
    width: 50px;
    height: 50px;
    position: fixed;
    top: 0;
    left: 0;
-   border: 3px solid var(--c-2);
+   border: 3px solid var(--c-1);
    border-radius: 50%;
    pointer-events: none;
- }
-
-
-.menu-btn {
-   position: fixed;
-   bottom: 1.9rem; right: 1.5rem;
-   z-index: 999;
 }
 
-.menu-btn a {
+/*________________________________*/
+/*    4.HEADER
+________________________________*/
+
+/************* navigation */
+/***** btn open */
+#btn-open {
+   z-index: 888;
+   position: fixed;
+   bottom: 3rem; right: var(--margin);
+}
+#btn-open a {
+   z-index: 9999;
    text-transform: uppercase;
    font-size: var(--fs-h3);
    color: var(--c-black);
-   background-color: var(--c-2);
-   width: 6.5rem;
-   height: 2.4rem;
-   padding-top: 5px;
-   border-radius: 20px;
-   transition: var(--trans-bg-color);
+   background-color: var(--c-1);
+   border: 1px solid var(--c-black);
+   width: 6.7rem;
+   height: 2.7rem;
+   border-radius: 12px;
    cursor: pointer;
 }
-.menu-btn a:hover {
+#btn-open a:hover {
    color: var(--c-black);
-   background-color: var(--c-grey-light);
+   background-color: var(--c-2);
    transition: var(--trans-bg-color);
    background-size: 0;
 }
+/************* navigation */
+/***** off canvas */
+nav {
+   top: 0; left: 0;
+   overflow: hidden;
+   transition: 0.5s;
+   z-index: 999;
+   position: fixed;
+   width: 100vw; height: 0;
+   background: var(--c-1);
+}
+nav #btn-close a {
+   z-index: 99999;
+   font-size: var(--fs-h2);
+   color: var(--c-black);
+   background-color: transparent;
+   transition: var(--trans-bg-color);
+   cursor: pointer;
+   background-size: 0;
+   top: 45%; right: 1rem;
+   position: absolute;
+}
+nav #btn-close a:hover {
+   color: var(--c-2);
+}
+nav #off-canvas {
+   background: var(--c-2);
+   width: 100%; height: 100%;
+}
+nav ul.menu-list {
+   width: 100%; height: 100vh;
+   background: var(--c-1);
+   gap: 20px;
+}
+nav ul.menu-list li {
+   font-size: var(--fs-h1);
+   text-align: center;
+   text-transform: uppercase;
+}
+nav ul.social-list {
+   position: relative;
+   top: 4rem;
+   gap: .5rem;
+   width: 100%;
+   text-transform: uppercase;
+}
+nav ul.social-list .icon-link {
+   font-size: 15px;
+   display: inline-flex;
+   text-decoration: none;
+   width: 3.1rem;
+   height: 3.1rem;
+   transition: .3s linear;
+   position: relative;
+   z-index: 1;
+   margin: auto
+}
+nav ul.social-list .icon-link:hover {
+   color: #fff;
+   background-size: 0;
+   font-weight: 400;
+ }
+nav ul.social-list .icon-link i {
+   margin: auto;
+ }
+nav ul.social-list .icon-link::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   width: 3rem;
+   height: 3rem;
+   background: #000;
+   border-radius: 50%;
+   z-index: -1;
+   transform: scale(0);
+   transition: 0.3s cubic-bezier(.95, .32, .37, 1.21);
+}
+nav ul.social-list .icon-link:hover::before {
+   transform: scale(1);
+}
+nav ul.social-list .icon-item:nth-child(1) a:hover:before {
+   background: var(--c-black);
+}
+nav ul.social-list .icon-item:nth-child(2) a:hover:before {
+   background: rgb(22, 128, 214);
+}
+nav ul.social-list .icon-item:nth-child(3) a:hover:before {
+   background: rgb(22, 128, 214);
+}
 
 
-.tx {
+.tx-scroll-white {
    border-bottom: 1px solid black;
    border-top: 1px solid black;
    font-size: var(--fs-h3);
@@ -281,12 +381,12 @@ svg#header-big-title path {
    display: flex;
    flex-wrap: nowrap;
    width: 120%;
-   margin: 10px 0 .5rem 0;
+   margin: var(--margin) 0 .5rem 0;
    padding: .2rem;
    width: 500%;
 
 }
-.tx2 {
+.tx-scroll-black {
    border-bottom: 1px solid black;
    border-top: 1px solid black;
    font-size: var(--fs-h3);
@@ -300,14 +400,12 @@ svg#header-big-title path {
    padding: .2rem;
    width: 500%;
 }
-.tx2 p {
+.tx-scroll-black p {
    color: white;
 }
 
-
 .header-title {
    width: 100%;
-
 }
 .header-title h1 {
    width: 100%;
@@ -327,9 +425,17 @@ svg#header-big-title path {
 /*________________________________*/
 /*    MEDIA QUERY
 ________________________________*/
-@media screen and (min-width: 780px) {
-   .menu-btn {
-      top: 1rem;
+@media screen and (max-width: 400px) {
+   nav ul.menu-list li {
+      font-size: var(--fs-h2);
+   }
+}
+@media screen and (min-width: 767px) {
+   #btn-open {
+      top: 1rem; right: 1.2rem;
+   }
+   nav #btn-close a {
+      top: 45%; right: 3rem;
    }
 }
 

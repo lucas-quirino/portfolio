@@ -16,7 +16,7 @@ font size */
    --fs-small: calc(8px + .2vw);
    --fs-medium: calc(10px + .2vw);
    --fs-big: calc(117px + 7vw);
-   --fs-body: calc(12px + .7vw);
+   --fs-body: calc(20px + 2vw);
    --fs-h1: calc(40px + 1vw);
    --fs-h2: calc(31px + .4vw);
    --fs-h3: calc(18px + .3vw);
@@ -91,6 +91,7 @@ body {
    font-family: var(--ff-body);
    font-size: var(--fs-body);
    background-color: var(--c-bg);
+   color: var(--c-black);
    height: 500vh;
 }
 a {
@@ -429,25 +430,15 @@ nav ul.social-list .icon-item:nth-child(3) a:hover:before {
 }
 
 .header-title {
-   padding-top: 4rem;
-   width: 80vw;
-   padding-left: 3rem;
+   padding-top: 11rem;
+   padding-left: 2.5rem;
 }
 .header-title h1 {
    padding-bottom: 2rem;
 }
 .header-title p {
    padding-bottom: 1rem;
-   line-height: 1.3rem;
-}
-
-figure.profile {
-   width: 85vw;
-   padding-left: 3.8rem;
-   filter: grayscale(.7);
-}
-figure.profile:hover {
-   filter: grayscale(0);
+   line-height: 2rem;
 }
 
 

@@ -2,23 +2,22 @@ gsap.registerPlugin(ScrollTrigger);
 
 // You can use a ScrollTrigger in a tween or timeline
 gsap.to("svg", {
-  y: 15,
+  yPercent: 10,
   scrollTrigger: {
-    trigger: "path",
+    trigger: "svg",
     start: "500px 480px",
     end: "300px 100px",
     scrub: true,
     // markers: true,
-    id: "scrub",
   }
 });
 
 
 
 
-gsap.set(".ball", {xPercent: -50, yPercent: -50});
+gsap.set(".mouse-ball", {xPercent: -50, yPercent: -50});
 
-const ball = document.querySelector(".ball");
+const ball = document.querySelector(".mouse-ball");
 const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 const mouse = { x: pos.x, y: pos.y };
 const speed = 0.2;

@@ -33,7 +33,7 @@ colors */
    --c-black: #111111;
 
    --c-1: #c20000;
-   --c-2: #caee00;
+   --c-2: #9bee00;
    --c-3: #b1afafa9;
 
 /* ________________________________________
@@ -222,32 +222,35 @@ ________________________________*/
 /*________________________________*/
 /*    4.HEADER
 ________________________________*/
-svg {
+svg#header-big-title {
+   position: relative;
+   margin-top: 1rem;
    width: 99vw; height: fit-content;
 }
-svg path {
+svg#header-big-title path {
    z-index: -999;
    display: flex;
 }
 
-.ball {
+.mouse-ball {
    width: 50px;
    height: 50px;
    position: fixed;
    top: 0;
    left: 0;
-   border: 3px solid var(--c-1);
+   border: 3px solid var(--c-2);
    border-radius: 50%;
    pointer-events: none;
  }
 
 
-
+.menu-btn {
+   position: fixed;
+   bottom: 1.9rem; right: 1.5rem;
+   z-index: 999;
+}
 
 .menu-btn a {
-   position: fixed;
-   top: 1.9rem; left: 1.5rem;
-   z-index: 999;
    text-transform: uppercase;
    font-size: var(--fs-h3);
    color: var(--c-black);
@@ -260,20 +263,19 @@ svg path {
    cursor: pointer;
 }
 .menu-btn a:hover {
-   color: var(--c-bg);
-   background-color: var(--c-1);
+   color: var(--c-black);
+   background-color: var(--c-grey-light);
    transition: var(--trans-bg-color);
    background-size: 0;
 }
 
 
 .tx {
-   z-index: 999;
    border-bottom: 1px solid black;
    border-top: 1px solid black;
    font-size: var(--fs-h3);
    text-transform: uppercase;
-   background-color: var(--c-bg);
+   background-color: var(--c-grey-light);
    font-weight: 400;
    display: flex;
    flex-wrap: nowrap;
@@ -284,7 +286,6 @@ svg path {
 
 }
 .tx2 {
-   z-index: 999;
    border-bottom: 1px solid black;
    border-top: 1px solid black;
    font-size: var(--fs-h3);
@@ -299,7 +300,6 @@ svg path {
    width: 500%;
 }
 .tx2 p {
-   z-index: 999;
    color: white;
 }
 
@@ -326,19 +326,12 @@ svg path {
 /*________________________________*/
 /*    MEDIA QUERY
 ________________________________*/
-@media screen and (max-width: 780px) {
-   .mobile-hide {
-      display: none;
-   }
-   .desktop-hide {
-      display: inline-flex;
+@media screen and (min-width: 780px) {
+   .menu-btn {
+      top: 1rem;
    }
 }
-@media screen and (min-width: 781px) {
-   .desktop-hide {
-      display: none;
-   }
-}
+
 
 
 
@@ -396,25 +389,3 @@ ________________________________*/
       opacity: 1;
    }
 }
-
-
-:root {
-	--c0: #000000;
-	--c1: #c34a4a;
-}
-/* body {
-	background:
-		radial-gradient(circle at 40% -10%, rgba(171, 189, 11, 0.384) 24px, #140000cc 40px 100%),
-		radial-gradient(circle at calc(50% + 15px) calc(50% - 1rem), var(--c1) 04rem, #fff0 calc(17rem + 1px)),
-		repeating-radial-gradient(circle at 50% 50%, var(--c0) 0 1rem, var(--c1) calc(0.75vmin + 1px) 1.5vmin, var(--c0) calc(1.5vmin + 1px));
-	background-repeat: no-repeat;
-   background-clip: border-box;
-   background-size: cover;
-   background-attachment: fixed;
-   height: 500vh;
-	overflow: hidden;
-	margin: 0;
-	padding: 0;
-	box-shadow: 0 0 50vmin 15vmin #140000 inset;
-   background-color: var(--c-black);
-} */

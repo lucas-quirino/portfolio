@@ -16,7 +16,7 @@ font size */
    --fs-small: calc(8px + .2vw);
    --fs-medium: calc(10px + .2vw);
    --fs-big: calc(117px + 7vw);
-   --fs-body: calc(20px + 2vw);
+   --fs-body: calc(18px + 1.7vw);
    --fs-h1: calc(40px + 1vw);
    --fs-h2: calc(31px + .4vw);
    --fs-h3: calc(18px + .3vw);

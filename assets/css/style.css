@@ -23,7 +23,7 @@ font size */
    --fs-h4: calc(14px + .4vw);
 /* ________________________________________
 colors */
-   --c-bg: #e6e6e6;
+   --c-bg: #007b85;
    --c-svg-title: #ff8585;
 
    --c-white: #fafafa;
@@ -222,20 +222,8 @@ ________________________________*/
 /*________________________________*/
 /*    4.HEADER
 ________________________________*/
-figure #red-frog img {
-   position: absolute;
-   left: 25rem; top: 230px;
-   opacity: 1;
-   width: 130px;
-   z-index: 999;
-   background-color: #caee00;
-   border-radius: 50%;
-   border: 5px solid black;
-}
-
 svg {
-   max-width: 100%; height: fit-content; min-height: 110%;
-   padding: 60px 0 15px 0;
+   width: 99vw; height: fit-content;
 }
 svg path {
    z-index: -999;
@@ -258,12 +246,12 @@ svg path {
 
 .menu-btn a {
    position: fixed;
-   top: 1rem; left: 0.677rem;
+   top: 1.9rem; left: 1.5rem;
    z-index: 999;
    text-transform: uppercase;
    font-size: var(--fs-h3);
    color: var(--c-black);
-   background-color: var(--c-bg);
+   background-color: var(--c-2);
    width: 6.5rem;
    height: 2.4rem;
    padding-top: 5px;
@@ -414,7 +402,7 @@ ________________________________*/
 	--c0: #000000;
 	--c1: #c34a4a;
 }
-body {
+/* body {
 	background:
 		radial-gradient(circle at 40% -10%, rgba(171, 189, 11, 0.384) 24px, #140000cc 40px 100%),
 		radial-gradient(circle at calc(50% + 15px) calc(50% - 1rem), var(--c1) 04rem, #fff0 calc(17rem + 1px)),
@@ -429,4 +417,4 @@ body {
 	padding: 0;
 	box-shadow: 0 0 50vmin 15vmin #140000 inset;
    background-color: var(--c-black);
-}
+} */

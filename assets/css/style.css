@@ -23,7 +23,8 @@ font size */
    --fs-h4: calc(14px + .4vw);
 /* ________________________________________
 colors */
-   --c-bg: #006872;
+   /* --c-bg: #00808b; */
+   --c-bg: #dbdbdb;
    --c-svg-title: #ff8585;
 
    --c-white: #fafafa;

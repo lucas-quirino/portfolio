@@ -24,15 +24,16 @@ font size */
 /* ________________________________________
 colors */
    /* --c-bg: #00808b; */
-   --c-bg: #dbdbdb;
-   --c-svg-title: #0a0a0a;
-   --c-svg-brand: #d2f029;
+   --c-bg: #c7c7c7;
+   --c-bg-nav: #1f1f1f;
+   --c-svg-title: #1f1f1f;
+   --c-svg-brand: #eeeeee;
 
    --c-white: #fafafa;
    --c-grey-light: #e6e6e6;
    --c-grey: rgba(128, 128, 128, 0.897);
    --c-grey-dark: #3a3a3a;
-   --c-black: #0a0a0a;
+   --c-black: #1f1f1f;
 
    --c-1: #d2f029;
    --c-2: #d81f63;
@@ -103,8 +104,8 @@ a.hover-item {
    background:
    linear-gradient( 90deg, rgb(0, 0, 0)  50%, #fff 0),
    linear-gradient(-90deg, #000  50%, #fff 0),
-   linear-gradient( 90deg, #0000 50%, var(--c-black) 0),
-   linear-gradient(-90deg, #0000 50%, var(--c-black) 0);
+   linear-gradient( 90deg, #0000 50%, var(--c-1) 0),
+   linear-gradient(-90deg, #0000 50%, var(--c-1) 0);
    background-repeat: no-repeat;
    background-size: 200% 51%;
    background-position: top left, bottom right;
@@ -114,7 +115,7 @@ a.hover-item {
    padding: 0 2rem;
 }
 a.hover-item:hover, a.hover-item:active {
-   color: var(--c-bg);
+   color: var(--c-black);
    background-position: top right, bottom left;
 }
 ul,
@@ -267,14 +268,15 @@ ________________________________*/
 #btn-open a {
    z-index: 888;
    text-transform: uppercase;
-   font-size: var(--fs-h3);
+   font-size: var(--fs-h4);
    color: var(--c-black);
    background-color: var(--c-1);
    border: 1px solid var(--c-black);
    width: 6.7rem;
    height: 2.7rem;
-   border-radius: 12px;
    cursor: pointer;
+   width: 107px; height: 45px;
+   border-radius: 12px;
 }
 #btn-open a:hover {
    color: var(--c-black);
@@ -291,25 +293,32 @@ nav {
    z-index: 999;
    position: fixed;
    width: 100vw; height: 0;
-   background: var(--c-bg);
+   background: var(--c-bg-nav);
+}
+nav a {
+   color: var(--c-bg);
 }
 nav #off-canvas {
-   width: 100%; height: 100%;
+   width: 80%; height: 100%;
 }
 #brand {
    position: absolute;
    margin: var(--margin);
+   width: 110px; height: 50px;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
-svg.brand-off-canvas {
-   width: 110px; height: 60px;
-   background: var(--c-black);
+#brand svg .brand-off-canvas {
+   width: 550px; height: 60px;
    padding: 0 1rem;
-   border-radius: 12px;
+
 }
 nav #btn-close a {
    z-index: 999;
    font-size: var(--fs-h2);
-   color: var(--c-black);
+   color: var(--c-bg);
    background-color: transparent;
    transition: var(--trans-bg-color);
    cursor: pointer;
@@ -324,10 +333,11 @@ nav ul.menu-list {
    width: 100%; height: 100vh;
    gap: 20px;
 }
-nav ul.menu-list li {
+nav ul.menu-list li a {
    font-size: var(--fs-h1);
    text-align: center;
    text-transform: uppercase;
+   color: var(--c-bg);
 }
 nav ul.social-list {
    position: relative;
@@ -348,7 +358,7 @@ nav ul.social-list .icon-link {
    margin: auto
 }
 nav ul.social-list .icon-link:hover {
-   color: #fff;
+   color: var(--c-bg-nav);
    background-size: 0;
    font-weight: 400;
  }
@@ -374,13 +384,13 @@ nav ul.social-list .icon-link:hover::before {
    transform: scale(1);
 }
 nav ul.social-list .icon-item:nth-child(1) a:hover:before {
-   background: var(--c-black);
+   background: var(--c-2);
 }
 nav ul.social-list .icon-item:nth-child(2) a:hover:before {
-   background: rgb(22, 128, 214);
+   background: var(--c-2);
 }
 nav ul.social-list .icon-item:nth-child(3) a:hover:before {
-   background: rgb(22, 128, 214);
+   background: var(--c-2);
 }
 
 
@@ -410,7 +420,7 @@ nav ul.social-list .icon-item:nth-child(3) a:hover:before {
    display: flex;
    flex-wrap: nowrap;
    width: 120%;
-   margin: 1rem 0;
+   margin: .3rem 0;
    padding: .2rem;
    width: 500%;
 }

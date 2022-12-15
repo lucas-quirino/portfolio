@@ -15,7 +15,7 @@ gsap.to("#svg-title", {
     yPercent: 10,
     scaleY: 1.18,
     scrollTrigger: {
-      trigger: "svg",
+      trigger: "#svg-title",
       start: "500px 480px",
       end: "300px 100px",
       scrub: true,

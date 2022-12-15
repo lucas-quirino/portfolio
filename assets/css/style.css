@@ -25,16 +25,16 @@ font size */
 colors */
    /* --c-bg: #00808b; */
    --c-bg: #dbdbdb;
-   --c-svg-title: #111111;
+   --c-svg-title: #0a0a0a;
 
    --c-white: #fafafa;
    --c-grey-light: #e6e6e6;
    --c-grey: rgba(128, 128, 128, 0.897);
    --c-grey-dark: #3a3a3a;
-   --c-black: #111111;
+   --c-black: #0a0a0a;
 
-   --c-1: #22c7d6;
-   --c-2: #abf324;
+   --c-1: #deff22;
+   --c-2: #b218e0;
    --c-3: #b1afafa9;
 /* ________________________________________
 transitions & animation */
@@ -49,6 +49,7 @@ shadow, margin, padding */
    --ts-white: 3px 3px 3px #fbffc173;
    --ts-black: 5px 5px 5px #00000088;
 }
+
 
 /*________________________________*/
 /*    2. RESET CSS
@@ -99,10 +100,10 @@ a.hover-item {
    text-decoration: none;
    color: var(--c-black);
    background:
-   linear-gradient( 90deg, #000  50%, #fff 0),
+   linear-gradient( 90deg, rgb(0, 0, 0)  50%, #fff 0),
    linear-gradient(-90deg, #000  50%, #fff 0),
-   linear-gradient( 90deg, #0000 50%, #000 0),
-   linear-gradient(-90deg, #0000 50%, #000 0);
+   linear-gradient( 90deg, #0000 50%, var(--c-black) 0),
+   linear-gradient(-90deg, #0000 50%, var(--c-black) 0);
    background-repeat: no-repeat;
    background-size: 200% 51%;
    background-position: top left, bottom right;
@@ -115,7 +116,6 @@ a.hover-item:hover, a.hover-item:active {
    color: var(--c-bg);
    background-position: top right, bottom left;
 }
-
 ul,
 ol,
 li {
@@ -154,6 +154,7 @@ h3 {
 h4 {
    font-size: var(--fs-h4);
 }
+
 
 /*________________________________*/
 /*    3. REUSABLE CLASSES
@@ -216,6 +217,7 @@ ________________________________*/
    display: none;
 }
 
+
 /*________________________________*/
 /*    4.SVG AND DINAMIC ITENS
 ________________________________*/
@@ -238,15 +240,17 @@ svg.big-title path.letter-L {
    position: absolute;
 }
 #cursor-ball{
+   z-index: 9999;
    width: 50px;
    height: 50px;
-   position: fixed;
+   position: absolute;
    top: 0;
    left: 0;
-   border: 3px solid var(--c-1);
+   border: 3px solid var(--c-2);
    border-radius: 50%;
    pointer-events: none;
 }
+
 
 /*________________________________*/
 /*    4.HEADER
@@ -260,7 +264,7 @@ ________________________________*/
    bottom: 3rem; right: var(--margin);
 }
 #btn-open a {
-   z-index: 9999;
+   z-index: 888;
    text-transform: uppercase;
    font-size: var(--fs-h3);
    color: var(--c-black);
@@ -286,10 +290,10 @@ nav {
    z-index: 999;
    position: fixed;
    width: 100vw; height: 0;
-   background: var(--c-1);
+   background: #dbdbdbde;
 }
 nav #btn-close a {
-   z-index: 99999;
+   z-index: 999;
    font-size: var(--fs-h2);
    color: var(--c-black);
    background-color: transparent;
@@ -303,12 +307,10 @@ nav #btn-close a:hover {
    color: var(--c-2);
 }
 nav #off-canvas {
-   background: var(--c-2);
    width: 100%; height: 100%;
 }
 nav ul.menu-list {
    width: 100%; height: 100vh;
-   background: var(--c-1);
    gap: 20px;
 }
 nav ul.menu-list li {
@@ -376,7 +378,7 @@ nav ul.social-list .icon-item:nth-child(3) a:hover:before {
    border-top: 1px solid black;
    font-size: var(--fs-h3);
    text-transform: uppercase;
-   background-color: var(--c-grey-light);
+   background-color: var(--c-1);
    font-weight: 400;
    display: flex;
    flex-wrap: nowrap;
@@ -384,7 +386,6 @@ nav ul.social-list .icon-item:nth-child(3) a:hover:before {
    margin: var(--margin) 0 .5rem 0;
    padding: .2rem;
    width: 500%;
-
 }
 .tx-scroll-black {
    border-bottom: 1px solid black;
@@ -419,9 +420,6 @@ nav ul.social-list .icon-item:nth-child(3) a:hover:before {
 }
 
 
-
-
-
 /*________________________________*/
 /*    MEDIA QUERY
 ________________________________*/
@@ -435,17 +433,14 @@ ________________________________*/
       top: 1rem; right: 1.2rem;
    }
    nav #btn-close a {
-      top: 45%; right: 3rem;
+      top: 45%; right: 2.4rem;
    }
 }
-
-
 
 
 /*________________________________*/
 /*    KEYFRAMES
 ________________________________*/
-
 @-webkit-keyframes slide-down {
    0% {
       -webkit-transform: translatey(-50px);

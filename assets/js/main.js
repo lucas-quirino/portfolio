@@ -8,15 +8,6 @@ function openNav() {
 
 
 
-
-
-
-
-
-
-
-
-
 gsap.registerPlugin(ScrollTrigger);
 
 // You can use a ScrollTrigger in a tween or timeline
